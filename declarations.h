@@ -28,7 +28,8 @@ int freeList(positionQ head);
 
 
 Position insert(Position current, Position newEl);
-Position replace(Position current, positionQ head);
+//Position replace(Position current, positionQ head);
+int replace(Position current);
 Position createElem();
 Position createElemWithNum(int newNumber);
 Position insertArray(Position root);

@@ -59,7 +59,7 @@ int main(){
                     printf("\nThe tree is empty!");
                 }
                 else
-                    root=replace(root, head);
+                    replace(root);
                 break;
             case 5:
                 root=freeTree(root);

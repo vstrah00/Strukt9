@@ -3,8 +3,6 @@
 #include <string.h>
 #include <time.h>
 #include "declarations.h"
-//#define LOWER 11
-//#define UPPER 89
 
 
 int writeTreeIntoFile(Position root, positionQ head){
@@ -35,7 +33,7 @@ int writeTreeIntoFile(Position root, positionQ head){
 
 
     fprintf(fp, "\nAfter Replace:");
-    root=replace(root, head);
+    replace(root);
     ReplaceStoreInList(root, head);
     temp=head->next;
     while(temp!=NULL){
@@ -152,7 +150,7 @@ Position createElemWithNum(int newNumber){
 }
 
 
-Position replace(Position current, positionQ head){
+/*Position replace(Position current, positionQ head){
     if(current->left && current->right){
         Push(head, current->left->num);
         current->left=replace(current->left, head);
@@ -180,7 +178,18 @@ Position replace(Position current, positionQ head){
 
     return current;
 }
+*/
 
+int replace(Position current){
+    if(!current)
+        return 0;
+
+    int oldData=current->num;
+
+    current->num=replace(current->left)+replace(current->right);
+
+    return current->num + oldData;
+}
 
 int Push(positionQ head, int currentNum){
     positionQ newEl=NULL;
